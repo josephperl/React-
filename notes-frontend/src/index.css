@@ -1,0 +1,197 @@
+/*
+Algumas informações úteis e dicas:
+  - Fontes disponíveis:
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Permanent Marker', cursive;
+  - Cores:
+    Tons de amarelo:
+      #e4fc2b
+      #e0d426
+      #f7d736
+      #e0af26
+      #fcb02b
+    Tons de cinza:
+      #2c2c2c
+      #4c4c4c
+    Cores dos cards:
+      #ead3a7
+      #9de0f5
+      #ef89ba
+      #fae890
+      #abe9c1
+  - Sombra: https://codepen.io/sdthornton/pen/wBZdXq
+ */
+
+html,
+body {
+  margin: 0;
+  background-color: #f2f2f2;
+  font-family: "Roboto", sans-serif;
+}
+
+.appbar {
+  background-color: #f7d736;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.appbar img {
+  height: 40px;
+  margin-right: 16px;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+.card:nth-child(1) { background-color: #fae890; } 
+.card:nth-child(2) { background-color: #ef89ba; }
+.card:nth-child(3) { background-color: #9de0f5; }
+.card:nth-child(4) { background-color: #fae890; }
+.card:nth-child(5) { background-color: #abe9c1; }
+.card:nth-child(6) { background-color: #e0c2a2; }
+.card:nth-child(7) { background-color: #ef89ba; }
+.card:nth-child(8) { background-color: #abe9c1; }
+.card:nth-child(9) { background-color: #fae890; }
+.card:nth-child(10) { background-color: #ef89ba; }
+.card:nth-child(1)  { transform: rotate(-3deg); }
+.card:nth-child(2)  { transform: rotate(2deg); }
+.card:nth-child(3)  { transform: rotate(-1deg); }
+.card:nth-child(4)  { transform: rotate(3deg); }
+.card:nth-child(5)  { transform: rotate(-2deg); }
+.card:nth-child(6)  { transform: rotate(1deg); }
+.card:nth-child(7)  { transform: rotate(-4deg); }
+.card:nth-child(8)  { transform: rotate(2deg); }
+.card:nth-child(9)  { transform: rotate(-2deg); }
+.card:nth-child(10) { transform: rotate(3deg); }
+.card:nth-child(3n) {
+  transform: rotate(-2deg) translateY(8px);
+}
+
+.card:nth-child(4n) {
+  transform: rotate(2deg) translateY(-6px);
+}
+.card:nth-child(n+7) {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+
+
+.card {
+  font-family: "Permanent Marker", cursive;
+  font-weight: 400;
+  width: 200px;
+  padding: 16px;
+  border-radius: 8px;
+  box-sizing: border-box;   
+  min-height: 120px;
+  text-align: center;
+}
+.card-title {
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+.form-card {
+  width: 500px;
+  margin: 40px auto; /* centraliza */
+  background-color: white;
+  padding: 16px;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.form-card {
+  display: flex;
+  flex-direction: column;
+}
+.form-card-title,
+.autoresize {
+  border: none;
+  outline: none;
+}
+.autoresize {
+  width: 100%;
+  resize: none;
+  margin-bottom: 16px;
+}
+.btn {
+  width: 100%;
+  background-color: #f7d736;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.form-card-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #2c2c2c;
+  margin-bottom: 6px;
+}
+.autoresize {
+  font-size: 14px;
+  color: #4c4c4c;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+/* Você pode usar o CSS comentado abaixo, se ajudar */
+/* Fonte: https://codepen.io/CrisWoler/pen/ogXBLj */
+/* .btn {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+
+  overflow: hidden;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+
+  background-color: #f7d736;
+
+  transition: background-color 0.3s;
+}
+
+.btn > * {
+  position: relative;
+}
+
+.btn:before {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: block;
+  width: 0;
+  padding-top: 0;
+
+  border-radius: 100%;
+
+  background-color: rgba(236, 240, 241, 0.3);
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+
+  transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+} */
