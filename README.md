@@ -21,7 +21,7 @@ notes-frontend/
 ├── index.html      # HTML base com o <div id="root"> que o React preenche
 ├── src/
 │   ├── main.jsx  # Ponto de entrada: injeta o <App /> no #root ( "liga o REACT")
-│   ├── App.jsx  # raiz: define as notas e renderiza os cartões ("constrói com REACT)
+│   ├── App.jsx  # raiz: define as notas e renderiza os cartões (tem os dados)("constrói com REACT)
 │   ├── index.css   # Estilos globais (cores, fontes, layout dos cards)
 │   └── components/
 │       └── Note/

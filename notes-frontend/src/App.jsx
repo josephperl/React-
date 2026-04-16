@@ -1,37 +1,36 @@
-// Importa o componente Note (cada cartão de anotação)
+import axios from "axios";
+import { useEffect, useState } from "react";
 import Note from "./components/Note";
-
-// Importa o CSS específico do App (atualmente vazio)
+import AppBar from "./components/AppBar";
+import Formulario from "./components/Formulario";
 import "./App.css";
 
 function App() {
-  // Array com os dados das notas — futuramente pode vir de uma API
-  const notes = [
-    {
-      id: 1, // identificador único, usado no atributo key do .map()
-      title: "Receita de miojo",
-      content:
-        "Bata com um martelo antes de abrir o pacote. Misture o tempero, coloque em uma vasilha e aproveite seu snack :)",
-    },
-    {
-      id: 2,
-      title: "Sorvete de banana",
-      content: "Coloque a banana no congelador e espere.",
-    },
-  ];
+  const [notes, setNotes] = useState([]);
+
+  const carregaNotas = () => {
+    axios
+      .get("http://localhost:8000/notes/")
+      .then((res) => setNotes(res.data));
+  }
+
+  useEffect(() => {
+    carregaNotas();
+  }, []);
 
   return (
-    // <> </> é um fragmento — agrupa elementos sem criar uma div extra no HTML
     <>
-      {/* .map() percorre o array e transforma cada nota em um componente <Note> */}
-      {notes.map((note) => (
-        // key é obrigatório quando se usa .map() — ajuda o React a identificar
-        // qual item mudou, foi adicionado ou removido na lista
-        <Note key={`note__${note.id}`} title={note.title}>
-          {/* O conteúdo entre as tags vira props.children lá no componente Note */}
-          {note.content}
-        </Note>
-      ))}
+      <AppBar />
+      <main className="container">
+        <Formulario loadNotes={carregaNotas} />
+        <div className="card-container">
+          {notes.map((note) => (
+            <Note key={`note__${note.id}`} title={note.title} id={note.id} loadNotes={carregaNotas}>
+              {note.content}
+            </Note>
+          ))}
+        </div>
+      </main>
     </>
   );
 }

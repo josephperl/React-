@@ -1,19 +1,27 @@
-// Importa o modo estrito do React (ajuda a detectar problemas no código)
 import { StrictMode } from 'react'
-
-// Importa a função que cria a "raiz" do React no HTML
 import { createRoot } from 'react-dom/client'
-
-// Importa o CSS global (fontes, cores, estilos base)
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import './index.css'
-
-// Importa o componente principal da aplicação
 import App from './App.jsx'
+import Editar, { loader as noteLoader } from './components/Editar'
 
-// Pega o elemento <div id="root"> do index.html e manda o React renderizar
-// o <App /> dentro dele — é aqui que o React "toma conta" da página
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "edit/:noteId",
+    element: <Editar />,
+    loader: noteLoader,
+  },
+]);
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
 )
